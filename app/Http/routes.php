@@ -12,9 +12,19 @@
 */
 
 Route::get('/', function () {
-    return view('client.dashboard.main.app');
+    return view('home');
 });
 
-Route::auth();
 
-Route::get('/home', 'HomeController@index');
+Route::group(['middleware' => 'web'], function () {
+    Route::auth();
+
+    Route::auth();
+
+    Route::get('/home', 'HomeController@index');
+    Route::get('/products', ['as' => 'products', 'uses' => 'HomeController@products']);
+    Route::get('/about/us', ['as' => 'about', 'uses' => 'HomeController@about']);
+
+});
+
+
