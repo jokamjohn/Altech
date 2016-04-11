@@ -26,6 +26,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="{{ route('products') }}">Products</a></li>
                 <li><a href="{{ route('about') }}">About</a></li>
+                <li><a href="{{ route('contact') }}">Contact</a></li>
                 <!-- Authentication Links -->
                 @if (Auth::guest())
                     <li><a href="{{ url('/login') }}">Login</a></li>

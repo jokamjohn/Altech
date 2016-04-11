@@ -1,15 +1,15 @@
 @extends('app.app')
-@section('title', 'About Us')
-@section('content')
+                    @section('title', 'About Us')
+                    @section('content')
 
-    <div class="row">
-        <div class="col-md-8 col-md-offset-2">
-            <div class="card">
-                <div class="header">
-                    <h2 class="title">About Us</h2>
-                    {{--<p class="category">.....Tag line .....</p>--}}
-                </div>
-                <div class="content">
+                        <div class="row">
+                            <div class="col-md-8 col-md-offset-2">
+                                <div class="card">
+                                    <div class="header">
+                                        <h2 class="title">About Us</h2>
+                                        {{--<p class="category">.....Tag line .....</p>--}}
+                                    </div>
+                                    <div class="content">
 
                     <p>Altech Poultry Breeders is a private Ugandan,
                         family owned and run business.

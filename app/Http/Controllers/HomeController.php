@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests;
+use App\Http\Requests\ContactRequest;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -14,6 +15,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
+//        $this->middleware('guest');
     }
 
     /**
@@ -42,5 +44,19 @@ class HomeController extends Controller
     public function about()
     {
         return view('pages.about');
+    }
+
+    /**Show the contact Form.
+     * 
+     * @return mixed
+     */
+    public function contact()
+    {
+        return view('pages.contact');
+    }
+
+    public function send(ContactRequest $request)
+    {
+        return $request->all();
     }
 }

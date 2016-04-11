@@ -21,7 +21,6 @@
 
     <div class="main-panel">
 
-
         @include('admin.dashboard.main.nav')
 
         <div class="content">
