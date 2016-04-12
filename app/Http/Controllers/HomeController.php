@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use App\Http\Requests\ContactRequest;
+use Auth;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -25,6 +26,13 @@ class HomeController extends Controller
      */
     public function index()
     {
+        if (Auth::check())
+        {
+            if (Auth::user()->client == 1)
+            {
+                return view('client.dashboard.home');
+            }
+        }
         return view('home');
     }
 
