@@ -16,7 +16,9 @@ class CountsController extends Controller
      */
     public function index()
     {
-        //
+        $counts = Count::paginate();
+        
+        return view('client.count.index', compact('counts'));
     }
 
     /**
