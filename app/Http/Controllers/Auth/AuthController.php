@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Auth;
 
+use Illuminate\Http\Request;
 use App\User;
 use Validator;
 use App\Http\Controllers\Controller;
@@ -28,7 +29,7 @@ class AuthController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/';
+    protected $redirectTo = '/dashboard';
 
     /**
      * Create a new authentication controller instance.
@@ -72,5 +73,12 @@ class AuthController extends Controller
             'password' => bcrypt($data['password']),
             'client' => 1
         ]);
+    }
+
+    protected function getCredentials(Request $request)
+    {
+        return $credentials = ['email' => $request->get('email'),
+            'password' => $request->get('password'),
+            'client' => 1, 'admin' => 0];
     }
 }

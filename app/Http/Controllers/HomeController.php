@@ -26,16 +26,10 @@ class HomeController extends Controller
      */
     public function index()
     {
-        if (Auth::check())
-        {
-            if (Auth::user()->client == 1)
-            {
-                return view('client.dashboard.home');
-            }
-        }
         return view('home');
     }
 
+   
     /**Show the products page.
      * 
      * @return mixed
