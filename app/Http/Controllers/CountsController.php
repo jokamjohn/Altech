@@ -3,9 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Count;
-use Illuminate\Http\Request;
-
 use App\Http\Requests;
+use Illuminate\Http\Request;
 
 class CountsController extends Controller
 {
@@ -16,8 +15,8 @@ class CountsController extends Controller
      */
     public function index()
     {
-        $counts = Count::paginate();
-        
+        $counts = Count::latest()->paginate();
+
         return view('client.count.index', compact('counts'));
     }
 
@@ -34,7 +33,7 @@ class CountsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
+     * @param  \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
@@ -44,13 +43,13 @@ class CountsController extends Controller
         $count->count = $request->get('count');
         $count->save();
 
-        return response("Object stored with ID: ". $count->id . " Name: ". $count->name . " count: ". $count->count ,200 );
+        return response("Object stored with ID: " . $count->id . " Name: " . $count->name . " count: " . $count->count, 200);
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -61,7 +60,7 @@ class CountsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -72,8 +71,8 @@ class CountsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \Illuminate\Http\Request $request
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -84,7 +83,7 @@ class CountsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  int $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
