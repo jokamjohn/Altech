@@ -17,42 +17,45 @@
                     <p>Dashboard</p>
                 </a>
             </li>
+
             <li>
-                <a href="#">
-                    <i class="ti-user"></i>
-                    <p>Users</p>
+                <a href="{{ route('count.data.today') }}">
+                    {{--<i class="ti-view-list-alt"></i>--}}
+                    <p>Today Count Data</p>
                 </a>
             </li>
+
             <li>
-                <a href="#">
-                    <i class="ti-view-list-alt"></i>
-                    <p>Something</p>
+                <a href="{{ route('chart.today') }}">
+                    {{--<i class="ti-user"></i>--}}
+                    <p>Today Chart</p>
                 </a>
             </li>
-            <li>
-                <a href="#">
-                    <i class="ti-text"></i>
-                    <p>Reports</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="ti-pencil-alt2"></i>
-                    <p>Icons</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="ti-map"></i>
-                    <p>Something</p>
-                </a>
-            </li>
-            <li>
-                <a href="#">
-                    <i class="ti-bell"></i>
-                    <p>Notifications</p>
-                </a>
-            </li>
+
+            {{--<li>--}}
+                {{--<a href="#">--}}
+                    {{--<i class="ti-text"></i>--}}
+                    {{--<p>Reports</p>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li>--}}
+                {{--<a href="#">--}}
+                    {{--<i class="ti-pencil-alt2"></i>--}}
+                    {{--<p>Icons</p>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li>--}}
+                {{--<a href="#">--}}
+                    {{--<i class="ti-map"></i>--}}
+                    {{--<p>Something</p>--}}
+                {{--</a>--}}
+            {{--</li>--}}
+            {{--<li>--}}
+                {{--<a href="#">--}}
+                    {{--<i class="ti-bell"></i>--}}
+                    {{--<p>Notifications</p>--}}
+                {{--</a>--}}
+            {{--</li>--}}
         </ul>
     </div>
 </div>

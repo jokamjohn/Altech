@@ -2,11 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Count;
-use App\Http\Requests;
+use App\Data;
 use Illuminate\Http\Request;
 
-class CountsController extends Controller
+use App\Http\Requests;
+
+class DataController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,9 +16,9 @@ class CountsController extends Controller
      */
     public function index()
     {
-        $counts = Count::latest()->paginate();
+        $counts = Data::latest()->paginate();
 
-        return view('client.count.index', compact('counts'));
+        return view('client.data.index', compact('counts'));
     }
 
     /**
@@ -33,12 +34,12 @@ class CountsController extends Controller
     /**
      * Store a newly created resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
+     * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
     public function store(Request $request)
     {
-        $count = new Count();
+        $count = new Data();
         $count->name = $request->get('name');
         $count->count = $request->get('count');
         $count->save();
@@ -47,18 +48,9 @@ class CountsController extends Controller
     }
 
     /**
-     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
-     */
-    public function today()
-    {
-        $counts = Count::today()->latest()->paginate();
-
-        return view('client.data.today', compact('counts'));
-    }
-    /**
      * Display the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function show($id)
@@ -69,7 +61,7 @@ class CountsController extends Controller
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function edit($id)
@@ -80,8 +72,8 @@ class CountsController extends Controller
     /**
      * Update the specified resource in storage.
      *
-     * @param  \Illuminate\Http\Request $request
-     * @param  int $id
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request, $id)
@@ -92,11 +84,28 @@ class CountsController extends Controller
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int $id
+     * @param  int  $id
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
     {
         //
+    }
+
+    /**
+     * @param Request $request
+     * @return mixed
+     */
+    public function today(Request $request)
+    {
+        $range = $request->get('range', 24);
+
+        $count = Data::spanningHours($range)
+            ->selectRaw('HOUR(created_at) as hour, count as count')
+            ->groupBy('hour')
+            ->orderBy('created_at')
+            ->pluck('count', 'hour');
+
+        return $count;
     }
 }

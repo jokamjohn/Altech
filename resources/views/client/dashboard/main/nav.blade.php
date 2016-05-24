@@ -11,33 +11,47 @@
         </div>
         <div class="collapse navbar-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="ti-panel"></i>
-                        <p>Stats</p>
-                    </a>
-                </li>
+                {{--<li>--}}
+                    {{--<a href="#" class="dropdown-toggle" data-toggle="dropdown">--}}
+                        {{--<i class="ti-panel"></i>--}}
+                        {{--<p>Stats</p>--}}
+                    {{--</a>--}}
+                {{--</li>--}}
+
+
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
-                        <i class="ti-bell"></i>
-                        <p class="notification">5</p>
-                        <p>Notifications</p>
+                        <i class="ti-panel"></i>
+                        {{--<p class="notification">5</p>--}}
+                        <p>Dummy Count Data</p>
                         <b class="caret"></b>
                     </a>
                     <ul class="dropdown-menu">
-                        <li><a href="#">Notification 1</a></li>
-                        <li><a href="#">Notification 2</a></li>
-                        <li><a href="#">Notification 3</a></li>
-                        <li><a href="#">Notification 4</a></li>
-                        <li><a href="#">Another notification</a></li>
+                        <li><a href="{{ route('data.today') }}">Today</a></li>
+                        <li><a href="{{ route('data.yesterday') }}">Yesterday</a></li>
+                        <li><a href="#">Last 7 Days</a></li>
+                        <li><a href="{{ route('data.index') }}">All</a></li>
+                        {{--<li><a href="#">Another notification</a></li>--}}
                     </ul>
                 </li>
-                <li>
-                    <a href="#">
-                        <i class="ti-settings"></i>
-                        <p>Settings</p>
+
+
+                <li class="dropdown">
+                    <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                        <i class="ti-panel"></i>
+                        {{--<p class="notification">5</p>--}}
+                        <p>Dummy Data Count Charts</p>
+                        <b class="caret"></b>
                     </a>
+                    <ul class="dropdown-menu">
+                        <li><a href="{{ route('data.chart.today') }}">Today</a></li>
+                        <li><a href="{{ route('data.chart.yesterday') }}">Yesterday</a></li>
+                        <li><a href="#">Last 7 Days</a></li>
+                        <li><a href="#">Any Day</a></li>
+                        {{--<li><a href="#">Another notification</a></li>--}}
+                    </ul>
                 </li>
+
 
                 <li>
                 @if (Auth::guest())
@@ -54,7 +68,7 @@
                         </ul>
                     </li>
                     @endif
-                </li>
+                    </li>
             </ul>
 
         </div>
