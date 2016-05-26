@@ -46,6 +46,7 @@ Route::group(['middleware' => 'web'], function () {
     #Data Charts Views
     Route::get('today/data/chart', [ 'as' => 'data.chart.today', 'uses' => 'GraphController@dataToday']);
     Route::get('yesterday/data/chart', [ 'as' => 'data.chart.yesterday', 'uses' => 'GraphController@dataYesterday']);
+    Route::get('comparison/data/chart', [ 'as' => 'data.chart.compare', 'uses' => 'GraphController@dataCompare']);
     #Data Endpoints
     Route::get('/today/data/count', 'DataController@today');
     Route::get('/yesterday/data/count', 'DataController@today');

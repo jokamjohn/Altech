@@ -45,4 +45,12 @@ class GraphController extends Controller
     {
         return view('client.charts.data.yesterday');
     }
+
+    /**
+     * @return \Illuminate\Contracts\View\Factory|\Illuminate\View\View
+     */
+    public function dataCompare()
+    {
+        return view('client.charts.data.comparison');
+    }
 }
