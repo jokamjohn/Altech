@@ -25591,7 +25591,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 exports.default = _Graph2.default.extend({
 
-    template: "\n            <div>\n                <div>\n                    <label> How many Hours ?</label>\n                    <select v-model=\"range\" @change=\"reload\">\n                        <option v-for=\"n in 365\">{{ n }}</option>\n                     </select>\n                </div>\n                    <canvas id=\"chart\" width=\"400\" height=\"200\" v-el:canvas></canvas>\n            \n                     {{{ legend }}}\n            </div>",
+    template: "\n            <div>\n               \n                    <canvas id=\"chart\" width=\"400\" height=\"200\" v-el:canvas></canvas>\n            \n                     {{{ legend }}}\n            </div>",
 
     props: {
         range: { default: 10 }

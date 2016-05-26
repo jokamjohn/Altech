@@ -24,11 +24,5 @@ export default Graph.extend({
         }
     }
 
-//     <div>
-//     <label> How many Hours ?</label>
-//     <select v-model="range" @change="reload">
-//     <option v-for="n in 365">{{ n }}</option>
-// </select>
-// </div>
 
 });

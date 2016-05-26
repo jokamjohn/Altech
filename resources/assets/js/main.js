@@ -4,7 +4,7 @@
 import Vue from 'vue';
 import VueResource from 'vue-resource';
 import HourGraph from './components/hourCount';
-import CompareGraph from './components/compare'
+
 
 Vue.use(VueResource);
 
